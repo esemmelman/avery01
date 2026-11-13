@@ -1,7 +1,7 @@
-// Word timings extracted locally from the saved recording. Audio stays in browser storage.
-const prayerAlignments = {
-  "3155a7833003960e3b07b97a16e5203b00975f12d3d2ad1b68c0d8061cb4a7fc": {
-    "key": "talit",
+// Shared approved audio and word timings for every device.
+const sharedRecordings = {
+  "talit": {
+    "src": "audio/talit.mp3",
     "marks": [
       {
         "word": 0,
@@ -65,8 +65,8 @@ const prayerAlignments = {
       }
     ]
   },
-  "ac53555a4484e9eadd24b7fdb43de1d8737bbfef60feb5811ce37625fbdecb43": {
-    "key": "elohai",
+  "elohai": {
+    "src": "audio/elohai.mp3",
     "marks": [
       {
         "word": 0,
@@ -300,8 +300,8 @@ const prayerAlignments = {
       }
     ]
   },
-  "1d76df5af6daa94b7c01bbced1cb6e0589c029f1eb968e575f4c97c86341377d": {
-    "key": "hamelamed",
+  "hamelamed": {
+    "src": "audio/hamelamed.mp3",
     "marks": [
       {
         "word": 0,
@@ -340,8 +340,8 @@ const prayerAlignments = {
       }
     ]
   },
-  "247676493ef34157a34c955226fd0459b84972235b7049ee56f01158dae06e26": {
-    "key": "laasok",
+  "laasok": {
+    "src": "audio/laasok.mp3",
     "marks": [
       {
         "word": 0,
@@ -407,6 +407,326 @@ const prayerAlignments = {
         "word": 12,
         "time": 11.06,
         "end": 11.58
+      }
+    ]
+  },
+  "yotzer": {
+    "src": "audio/yotzer.mp3",
+    "marks": [
+      {
+        "word": 0,
+        "time": 0.0,
+        "end": 1.18
+      },
+      {
+        "word": 1,
+        "time": 1.18,
+        "end": 1.84
+      },
+      {
+        "word": 2,
+        "time": 1.84,
+        "end": 2.66
+      },
+      {
+        "word": 3,
+        "time": 2.66,
+        "end": 4.1
+      },
+      {
+        "word": 4,
+        "time": 4.1,
+        "end": 4.84
+      },
+      {
+        "word": 5,
+        "time": 4.84,
+        "end": 5.54
+      },
+      {
+        "word": 6,
+        "time": 5.54,
+        "end": 6.84
+      },
+      {
+        "word": 7,
+        "time": 6.84,
+        "end": 7.42
+      },
+      {
+        "word": 8,
+        "time": 7.42,
+        "end": 8.3
+      },
+      {
+        "word": 9,
+        "time": 8.3,
+        "end": 9.26
+      },
+      {
+        "word": 10,
+        "time": 9.26,
+        "end": 10.3
+      },
+      {
+        "word": 11,
+        "time": 10.3,
+        "end": 11.1
+      },
+      {
+        "word": 12,
+        "time": 11.1,
+        "end": 12.26
+      },
+      {
+        "word": 13,
+        "time": 12.26,
+        "end": 13.12
+      },
+      {
+        "word": 14,
+        "time": 13.12,
+        "end": 14.94
+      },
+      {
+        "word": 15,
+        "time": 14.94,
+        "end": 15.94
+      },
+      {
+        "word": 16,
+        "time": 15.94,
+        "end": 17.04
+      },
+      {
+        "word": 17,
+        "time": 17.04,
+        "end": 17.78
+      },
+      {
+        "word": 18,
+        "time": 17.78,
+        "end": 18.82
+      },
+      {
+        "word": 19,
+        "time": 18.82,
+        "end": 20.38
+      },
+      {
+        "word": 20,
+        "time": 20.38,
+        "end": 21.34
+      },
+      {
+        "word": 21,
+        "time": 21.34,
+        "end": 22.4
+      },
+      {
+        "word": 22,
+        "time": 22.4,
+        "end": 22.88
+      },
+      {
+        "word": 23,
+        "time": 22.88,
+        "end": 23.68
+      },
+      {
+        "word": 24,
+        "time": 23.68,
+        "end": 24.78
+      },
+      {
+        "word": 25,
+        "time": 24.78,
+        "end": 26.28
+      },
+      {
+        "word": 26,
+        "time": 26.28,
+        "end": 27.06
+      },
+      {
+        "word": 27,
+        "time": 27.06,
+        "end": 27.72
+      },
+      {
+        "word": 28,
+        "time": 27.72,
+        "end": 28.44
+      },
+      {
+        "word": 29,
+        "time": 28.44,
+        "end": 29.18
+      },
+      {
+        "word": 30,
+        "time": 29.18,
+        "end": 30.3
+      },
+      {
+        "word": 31,
+        "time": 30.3,
+        "end": 31.34
+      },
+      {
+        "word": 32,
+        "time": 31.34,
+        "end": 32.24
+      },
+      {
+        "word": 33,
+        "time": 32.24,
+        "end": 33.68
+      },
+      {
+        "word": 34,
+        "time": 33.68,
+        "end": 34.42
+      },
+      {
+        "word": 35,
+        "time": 34.42,
+        "end": 35.58
+      },
+      {
+        "word": 36,
+        "time": 35.58,
+        "end": 37.2
+      },
+      {
+        "word": 37,
+        "time": 37.2,
+        "end": 37.88
+      },
+      {
+        "word": 38,
+        "time": 37.88,
+        "end": 38.84
+      },
+      {
+        "word": 39,
+        "time": 38.84,
+        "end": 39.56
+      },
+      {
+        "word": 40,
+        "time": 39.56,
+        "end": 40.16
+      },
+      {
+        "word": 41,
+        "time": 40.16,
+        "end": 40.94
+      },
+      {
+        "word": 42,
+        "time": 40.94,
+        "end": 41.64
+      },
+      {
+        "word": 43,
+        "time": 41.64,
+        "end": 43.04
+      },
+      {
+        "word": 44,
+        "time": 43.04,
+        "end": 44.06
+      },
+      {
+        "word": 45,
+        "time": 44.06,
+        "end": 44.78
+      },
+      {
+        "word": 46,
+        "time": 44.78,
+        "end": 46.02
+      },
+      {
+        "word": 47,
+        "time": 46.02,
+        "end": 47.32
+      },
+      {
+        "word": 48,
+        "time": 47.32,
+        "end": 48.42
+      },
+      {
+        "word": 49,
+        "time": 48.42,
+        "end": 49.42
+      },
+      {
+        "word": 50,
+        "time": 49.42,
+        "end": 50.04
+      },
+      {
+        "word": 51,
+        "time": 50.04,
+        "end": 50.34
+      },
+      {
+        "word": 52,
+        "time": 50.34,
+        "end": 50.82
+      },
+      {
+        "word": 53,
+        "time": 50.82,
+        "end": 51.36
+      },
+      {
+        "word": 54,
+        "time": 51.36,
+        "end": 52.66
+      },
+      {
+        "word": 55,
+        "time": 52.66,
+        "end": 53.4
+      },
+      {
+        "word": 56,
+        "time": 53.4,
+        "end": 54.0
+      },
+      {
+        "word": 57,
+        "time": 54.0,
+        "end": 54.72
+      },
+      {
+        "word": 58,
+        "time": 54.72,
+        "end": 55.98
+      },
+      {
+        "word": 59,
+        "time": 55.98,
+        "end": 56.56
+      },
+      {
+        "word": 60,
+        "time": 56.56,
+        "end": 57.38
+      },
+      {
+        "word": 61,
+        "time": 57.38,
+        "end": 58.74
+      },
+      {
+        "word": 62,
+        "time": 58.74,
+        "end": 59.72
       }
     ]
   }

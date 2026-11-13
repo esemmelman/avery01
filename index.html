@@ -29,22 +29,19 @@ a { color: #345c80; text-underline-offset: 3px; }
 select:focus-visible { outline: 3px solid #345c80; outline-offset: 3px; }
 @media (max-width: 640px) { .layout { grid-template-columns: 1fr; } aside { max-height: 42dvh; padding: 16px; border-right: 0; border-bottom: 1px solid #d9dfdd; } select { max-width: 280px; } option { padding: 6px 12px; } main { padding: 16px; } .blessing { padding: 22px 16px; } }
 
-button, .file-button { font: 14px system-ui, sans-serif; padding: 10px 12px; border: 1px solid #9aadb8; border-radius: 5px; color: #233a50; background: white; cursor: pointer; letter-spacing: normal; text-transform: none; display: inline-block; margin: 0; }
+button { font: 14px system-ui, sans-serif; padding: 10px 12px; border: 1px solid #9aadb8; border-radius: 5px; color: #233a50; background: white; cursor: pointer; letter-spacing: normal; text-transform: none; display: inline-block; margin: 0; }
 button:disabled { opacity: .45; cursor: default; }
 button:focus-visible, li:focus-visible { outline: 3px solid #345c80; outline-offset: 2px; }
 .controls { margin-bottom: 24px; padding: 16px; background: #eff2f1; border-radius: 6px; font: 14px/1.5 system-ui, sans-serif; }
 .buttons { display: flex; gap: 8px; flex-wrap: wrap; margin: 10px 0; }
 audio { width: 100%; margin-top: 8px; }
 .controls p { margin: 8px 0; }
-#record-status { font-weight: 600; }
+#playback-status { color: #8b3025; }
 li.active { background: #ffe69a; box-shadow: 0 0 0 3px #ffe69a; border-radius: 3px; }
 li[data-word] { cursor: pointer; }
 [hidden] { display: none !important; }
 .playback-only .controls { padding: 0; background: transparent; }
 .playback-only .controls .buttons { margin: 0; }
-.playback-only .controls p, .playback-only .controls label,
-.playback-only #record, .playback-only #next-word, .playback-only #stop-record,
-.playback-only #rewind, .playback-only #forward, .playback-only #backup,
 .playback-only .intro { display: none; }
 .playback-only #pdf { margin-bottom: 10px; }
 @media print {
@@ -54,12 +51,12 @@ li[data-word] { cursor: pointer; }
  aside, .controls, .eyebrow, footer { display: none !important; }
  main { display: block; padding: 0; }
  .blessing, .blessing.long { width: 100%; padding: 0; box-shadow: none; border: 0; }
- h1 { font-size: 28px; }
+ h1 { font-size: 34px; }
  .intro { margin-bottom: 14px; font-size: 13px; }
  #words { overflow: visible; gap: 12px; grid-template-columns: repeat(var(--columns, 1), minmax(0, 1fr)); }
- li { min-height: 35px; gap: 2px; }
- .hebrew { font-size: 26px; line-height: 1.35; }
- .transliteration { font-size: 16px; }
+ li { min-height: 41px; gap: 2px; }
+ .hebrew { font-size: 30px; line-height: 1.35; }
+ .transliteration { font-size: 18px; }
  li.active { background: transparent; box-shadow: none; }
 }
 </style>
@@ -82,12 +79,9 @@ li[data-word] { cursor: pointer; }
 <h1 id="title"></h1>
 <p class="intro" id="intro"></p>
 <div class="controls">
-<div class="buttons"><button id="record">Record prayer</button><button id="next-word" disabled>Next word (Space)</button><button id="stop-record" disabled>Stop &amp; save</button><button id="pdf">Save PDF</button></div>
-<p id="record-help">While recording, say the highlighted word, then press Next word or Space before saying the next one. You can also select a row. Stop after the last word.</p>
-<p id="record-status" role="status" aria-live="polite">Loading recordings…</p>
+<button id="pdf">Save PDF</button>
 <audio id="player" controls preload="metadata" aria-label="Prayer recording"></audio>
-<div class="buttons"><button id="rewind" disabled>Rewind 5 seconds</button><button id="forward" disabled>Forward 5 seconds</button><button id="backup" disabled>Download recording backup</button><label class="file-button">Restore backup<input id="restore" type="file" accept="application/json,.json" hidden></label></div>
-<p>Recordings are saved in this browser on this device. Download a backup to keep a copy or move it to another browser. During playback, select a word to jump to it.</p>
+<p id="playback-status" role="status" aria-live="polite" hidden></p>
 </div>
 <div id="words" aria-label="Hebrew prayer with word-by-word transliteration"></div>
 <footer>יְיָ is read as Adonai. <a id="source">Prayer text reference</a></footer>
