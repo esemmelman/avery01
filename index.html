@@ -1,49 +1,54 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Blessing for Putting on a Talit</title>
-  <style>
-    * { box-sizing: border-box; }
-    body { margin: 0; background: #f6f4ee; color: #233a50; font-family: Georgia, 'Times New Roman', serif; }
-    main { min-height: 100vh; display: flex; justify-content: center; padding: 40px; }
-    .blessing { width: min(100%, 440px); padding: 30px 32px; background: #fffefb; border-top: 5px solid #345c80; border-radius: 4px; box-shadow: 0 8px 36px #233a5010; }
-    .eyebrow { font: 11px/1.5 system-ui, sans-serif; letter-spacing: .2em; text-transform: uppercase; color: #6c7b86; margin: 0 0 10px; }
-    h1 { font-size: 28px; font-weight: normal; margin: 0 0 8px; }
-    .intro { font: 14px/1.6 system-ui, sans-serif; color: #6c7b86; margin: 0 0 22px; }
-    ol { list-style: none; margin: 0; padding: 0; }
-    li { direction: rtl; font-weight: bold; display: grid; grid-template-columns: minmax(0, 1fr) 12px minmax(0, 1fr); align-items: center; gap: 6px; min-height: 52px; border-bottom: 1px solid #e9e8e2; }
-    .hebrew { font-family: 'Times New Roman', serif; font-size: 29px; text-align: left; line-height: 1.7; }
-    .dash { color: #9ca7ae; text-align: center; }
-    .transliteration { direction: ltr; text-align: right; font-size: 18px; }
-    footer { margin-top: 22px; font: 12px/1.6 system-ui, sans-serif; color: #6c7b86; }
-    a { color: #345c80; text-underline-offset: 3px; }
-    @media (max-width: 520px) { main { padding: 16px; } .blessing { padding: 24px 20px; } .transliteration { font-size: 17px; } }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prayers &amp; Blessings</title>
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; background: #f6f4ee; color: #233a50; font-family: Georgia, 'Times New Roman', serif; }
+.layout { display: grid; grid-template-columns: 180px minmax(0, 1fr); min-height: 100vh; }
+aside { padding: 32px 18px; background: #eceeea; border-right: 1px solid #d9dfdd; }
+label, .eyebrow { display: block; font: 11px/1.5 system-ui, sans-serif; letter-spacing: .15em; text-transform: uppercase; color: #6c7b86; margin: 0 0 12px; }
+select { width: 100%; padding: 6px; border: 1px solid #c0cbcf; border-radius: 4px; background: #fffefb; color: #233a50; font: 18px/1.6 Georgia, serif; }
+option { padding: 12px; cursor: pointer; }
+main { min-width: 0; padding: 32px; display: flex; justify-content: center; align-items: flex-start; }
+.blessing { width: min(100%, 420px); padding: 28px; background: #fffefb; border-top: 5px solid #345c80; border-radius: 4px; box-shadow: 0 8px 36px #233a5010; }
+.blessing.long { width: min(100%, 1120px); }
+h1 { font-size: 28px; font-weight: normal; margin: 0 0 8px; }
+.intro { font: 14px/1.6 system-ui, sans-serif; color: #6c7b86; margin: 0 0 22px; }
+ol { list-style: none; margin: 0; padding: 0; }
+.long ol { columns: 3 280px; column-gap: 28px; column-rule: 1px solid #e9e8e2; direction: rtl; }
+li { direction: rtl; font-weight: bold; display: flex; justify-content: center; align-items: center; gap: 4px; min-height: 50px; border-bottom: 1px solid #e9e8e2; break-inside: avoid; }
+.hebrew { font-family: 'Times New Roman', serif; font-size: 29px; line-height: 1.7; white-space: nowrap; }
+.dash { color: #9ca7ae; }
+.transliteration { direction: ltr; font-size: 18px; white-space: nowrap; }
+footer { margin-top: 22px; font: 12px/1.6 system-ui, sans-serif; color: #6c7b86; }
+a { color: #345c80; text-underline-offset: 3px; }
+select:focus-visible { outline: 3px solid #345c80; outline-offset: 3px; }
+@media (max-width: 640px) { .layout { grid-template-columns: 1fr; } aside { padding: 16px; border-right: 0; border-bottom: 1px solid #d9dfdd; } select { max-width: 280px; } option { padding: 6px 12px; } main { padding: 16px; } .blessing { padding: 22px 16px; } }
+</style>
 </head>
 <body>
-  <main>
-    <section class="blessing" aria-labelledby="title">
-      <p class="eyebrow">Prayer &amp; practice</p>
-      <h1 id="title">Blessing for the Talit</h1>
-      <p class="intro">For putting on a prayer shawl.<br>Read one word at a time, from top to bottom.</p>
-      <ol aria-label="Hebrew blessing with word-by-word transliteration">
-        <li><span class="hebrew" lang="he" dir="rtl">בָּרוּךְ</span><span class="dash">–</span><span class="transliteration">Baruch</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">אַתָּה</span><span class="dash">–</span><span class="transliteration">Atah</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">יְיָ</span><span class="dash">–</span><span class="transliteration">Adonai</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">אֱלֹהֵינוּ</span><span class="dash">–</span><span class="transliteration">Eloheinu</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">מֶלֶךְ</span><span class="dash">–</span><span class="transliteration">Melech</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">הָעוֹלָם</span><span class="dash">–</span><span class="transliteration">Ha’olam</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">אֲשֶׁר</span><span class="dash">–</span><span class="transliteration">Asher</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">קִדְּשָׁנוּ</span><span class="dash">–</span><span class="transliteration">Kid’shanu</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">בְּמִצְוֹתָיו</span><span class="dash">–</span><span class="transliteration">B’mitzvotav</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">וְצִוָּנוּ</span><span class="dash">–</span><span class="transliteration">V’tzivanu</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">לְהִתְעַטֵּף</span><span class="dash">–</span><span class="transliteration">L’hitateif</span></li>
-        <li><span class="hebrew" lang="he" dir="rtl">בַּצִּיצִית</span><span class="dash">–</span><span class="transliteration">Ba-tzitzit</span></li>
-      </ol>
-      <footer>יְיָ is read as Adonai.<br><a href="https://www.chabad.org/library/article_cdo/aid/3869279/jewish/Tallit-Prayer-Blessings.htm">About the blessing</a></footer>
-    </section>
-  </main>
+<div class="layout">
+<aside>
+<label for="prayer-picker">Choose a prayer</label>
+<select id="prayer-picker" size="3" aria-controls="prayer-content">
+<option value="talit" selected>Talit</option>
+<option value="elohai">Elohai</option>
+<option value="laasok">Laasok</option>
+</select>
+</aside>
+<main>
+<section class="blessing" id="prayer-content" aria-labelledby="title">
+<p class="eyebrow">Prayer &amp; practice</p>
+<h1 id="title"></h1>
+<p class="intro" id="intro"></p>
+<ol id="words" aria-label="Hebrew prayer with word-by-word transliteration"></ol>
+<footer>יְיָ is read as Adonai. <a id="source">Prayer text reference</a></footer>
+</section>
+</main>
+</div>
+<script src="prayers.js"></script>
 </body>
 </html>
