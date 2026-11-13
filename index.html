@@ -43,7 +43,7 @@ li[data-word] { cursor: pointer; }
 .playback-only .controls { padding: 0; background: transparent; }
 .playback-only .controls .buttons { margin: 0; }
 .playback-only .intro { display: none; }
-.playback-only #pdf { margin-bottom: 10px; }
+.playback-only #pdf { display: block; margin: 0 0 10px auto; }
 @media print {
  @page { size: portrait; margin: 10mm; }
  body { background: white; }
@@ -79,7 +79,7 @@ li[data-word] { cursor: pointer; }
 <h1 id="title"></h1>
 <p class="intro" id="intro"></p>
 <div class="controls">
-<button id="pdf">Save PDF</button>
+<button id="pdf">Print</button>
 <audio id="player" controls preload="metadata" aria-label="Prayer recording"></audio>
 <p id="playback-status" role="status" aria-live="polite" hidden></p>
 </div>
