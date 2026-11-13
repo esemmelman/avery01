@@ -147,8 +147,10 @@ function showPrayer(key) {
   document.getElementById('prayer-content').classList.toggle('long', prayer.words.length > 18);
   document.getElementById('source').href = prayer.source || '';
   document.getElementById('source').hidden = !prayer.source || key === 'hamelamed';
-  const rows = prayer.words.map(([hebrew, transliteration]) => {
+  const rows = prayer.words.map(([hebrew, transliteration], index) => {
     const row = document.createElement('li');
+    row.dataset.word = index;
+    row.tabIndex = 0;
     const he = document.createElement('span');
     he.className = 'hebrew'; he.lang = 'he'; he.dir = 'rtl'; he.textContent = hebrew;
     const dash = document.createElement('span');
@@ -159,7 +161,8 @@ function showPrayer(key) {
     return row;
   });
   const columns = [];
-  const columnCount = Math.ceil(rows.length / 18);
+  const columnCount = rows.length > 18 ? 3 : 1;
+  document.getElementById('words').style.setProperty('--columns', columnCount);
   const wordsPerColumn = Math.ceil(rows.length / columnCount);
   for (let start = 0; start < rows.length; start += wordsPerColumn) {
     const column = document.createElement('ol');
