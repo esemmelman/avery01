@@ -65,7 +65,74 @@ const hamelamed = [
   ['יִשְׂרָאֵל', 'Yisrael']
 ];
 
+const yotzer = `
+בָּרוּךְ|Baruch
+אַתָּה|Atah
+יְיָ|Adonai
+אֱלֹהֵינוּ|Eloheinu
+מֶלֶךְ|Melech
+הָעוֹלָם|Ha’olam
+יוֹצֵר|Yotzer
+אוֹר|Ohr
+וּבוֹרֵא|Uvorei
+חֹשֶׁךְ|Choshech
+עֹשֶׂה|Oseh
+שָׁלוֹם|Shalom
+וּבוֹרֵא|Uvorei
+אֶת־הַכֹּל|Et-hakol
+הַמֵּאִיר|Hame’ir
+לָאָרֶץ|La’aretz
+וְלַדָּרִים|V’ladarim
+עָלֶיהָ|Aleha
+בְּרַחֲמִים|B’rachamim
+וּבְטוּבוֹ|Uv’tuvo
+מְחַדֵּשׁ|Mechadesh
+בְּכָל|B’chol
+יוֹם|Yom
+תָּמִיד|Tamid
+מַעֲשֵׂה|Ma’aseh
+בְרֵאשִׁית|V’reishit
+מָה|Mah
+רַבּוּ|Rabu
+מַעֲשֶׂיךָ|Ma’asecha
+יְיָ|Adonai
+כֻּלָּם|Kulam
+בְּחָכְמָה|B’chochmah
+עָשִׂיתָ|Asita
+מָלְאָה|Mal’ah
+הָאָרֶץ|Ha’aretz
+קִנְיָנֶךָ|Kinyanecha
+תִּתְבָּרַךְ|Titbarach
+יְיָ|Adonai
+אֱלֹהֵינוּ|Eloheinu
+עַל|Al
+שֶׁבַח|Shevach
+מַעֲשֵׂה|Ma’aseh
+יָדֶיךָ|Yadecha
+וְעַל|V’al
+מְאוֹרֵי|Me’orei
+אוֹר|Ohr
+שֶׁעָשִׂיתָ|She’asita
+יְפָאֲרוּךָ|Yefa’arucha
+סֶּלָה|Selah
+אוֹר|Ohr
+חָדָשׁ|Chadash
+עַל|Al
+צִיּוֹן|Tziyon
+תָּאִיר|Ta’ir
+וְנִזְכֶּה|V’nizkeh
+כֻלָּנוּ|Chulanu
+מְהֵרָה|M’heirah
+לְאוֹרוֹ|L’oro
+בָּרוּךְ|Baruch
+אַתָּה|Atah
+יְיָ|Adonai
+יוֹצֵר|Yotzer
+הַמְּאוֹרוֹת|Ham’orot
+`.trim().split('\n').map(line => line.split('|'));
+
 const prayers = {
+  yotzer: { title: 'Yotzer Ohr', intro: 'Read down each column, beginning with the rightmost column and continuing to the left. Text follows your prayer book, page 313.', words: yotzer },
   hamelamed: { title: "Hamelamed Torah L’amo Yisrael", intro: "Blessing for the teaching of Torah. Read from top to bottom.", words: hamelamed, source: "https://kitzur.co.il/לוח-לימוד-יומי/textbook/47.html" },
   talit: { title: 'Blessing for the Talit', intro: 'For putting on a prayer shawl. Read from top to bottom.', words: talit, source: 'https://www.chabad.org/library/article_cdo/aid/3869279/jewish/Tallit-Prayer-Blessings.htm' },
   elohai: { title: 'Elohai Neshama', intro: 'Read down each column, beginning with the rightmost column and continuing to the left.', words: elohai, source: 'https://templesinaiatlanta.org/wp-content/uploads/2025/07/ShabbatMorningService.pdf' },
@@ -78,8 +145,8 @@ function showPrayer(key) {
   document.title = prayer.title + ' — Prayers & Blessings';
   document.getElementById('intro').textContent = prayer.intro;
   document.getElementById('prayer-content').classList.toggle('long', prayer.words.length > 18);
-  document.getElementById('source').href = prayer.source;
-  document.getElementById('source').hidden = key === 'hamelamed';
+  document.getElementById('source').href = prayer.source || '';
+  document.getElementById('source').hidden = !prayer.source || key === 'hamelamed';
   const rows = prayer.words.map(([hebrew, transliteration]) => {
     const row = document.createElement('li');
     const he = document.createElement('span');
