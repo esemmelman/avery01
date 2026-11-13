@@ -52,6 +52,9 @@
   }
   async function alignRecording(recording) {
     if (!recording) return recording;
+    if (prayers[recording.key].textVersion && recording.textVersion !== prayers[recording.key].textVersion) {
+      return { ...recording, marks: [], complete: false };
+    }
     const digest = await crypto.subtle.digest('SHA-256', await recording.blob.arrayBuffer());
     const hash = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
     const alignment = prayerAlignments[hash];
@@ -64,7 +67,7 @@
     player.pause();
     if (objectUrl) URL.revokeObjectURL(objectUrl);
     current = recording;
-    $('prayer-content').classList.toggle('playback-only', !!recording);
+    $('prayer-content').classList.toggle('playback-only', !!recording && !prayers[key].allowRecording);
     player.removeAttribute('src');
     if (recording) { objectUrl = URL.createObjectURL(recording.blob); player.src = objectUrl; }
     player.load();
@@ -112,7 +115,7 @@
         if (!blob.size) { recordingControls(false); status('No audio captured. Please try again.'); return; }
         // If the user did not mark every word, keep the audio but explicitly flag incomplete timing.
         const complete = marks.length === prayers[key].words.length;
-        const saved = { key, blob, marks, duration, complete, savedAt: new Date().toISOString() };
+        const saved = { key, blob, marks, duration, complete, textVersion: prayers[key].textVersion, savedAt: new Date().toISOString() };
         attach(saved); recordingControls(true);
         try { await put(saved); status(complete ? 'Recording and word timings saved. Press play to review.' : 'Audio saved. Word timings are incomplete; record again and advance through every word for full highlighting.'); }
         catch { status('Audio is available now, but could not be saved in this browser. Download a backup before leaving.'); }
@@ -187,7 +190,7 @@
       if (current && !window.confirm('Replace the current saved recording with this backup?')) return;
       const blob = await (await fetch(value.audio)).blob();
       const saved = { key, blob, marks: value.marks, duration: value.duration, complete: value.marks.length === count, savedAt: value.savedAt };
-      await put(saved); attach(saved); status(saved.complete ? 'Recording and word timings restored.' : 'Recording restored with incomplete word timings.');
+      await put(saved); attach(await alignRecording(saved)); status(current.complete ? 'Recording and word timings restored.' : 'Recording restored with incomplete word timings.');
     } catch { status('Could not restore. Choose a valid recording backup for the selected prayer.'); }
     finally { event.target.value = ''; recordingControls(false); }
   };

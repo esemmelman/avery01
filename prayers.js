@@ -16,14 +16,6 @@ const elohai = `
 וְאַתָּה|V’atah
 מְשַׁמְּרָהּ|Meshamerah
 בְּקִרְבִּי|B’kirbi
-וְאַתָּה|V’atah
-עָתִיד|Atid
-לִטְּלָהּ|Litlah
-מִמֶּנִּי|Mimeni
-וּלְהַחֲזִירָהּ|Ul’hachazirah
-בִּי|Bi
-לֶעָתִיד|Le’atid
-לָבֹא|Lavo
 כָּל|Kol
 זְמַן|Zman
 שֶׁהַנְּשָׁמָה|Shehaneshama
@@ -35,6 +27,7 @@ const elohai = `
 אֱלֹהַי|Elohai
 וֵאלֹהֵי|V’Elohei
 אֲבוֹתַי|Avotai
+וְאִמּוֹתַי|V’emotai
 רִבּוֹן|Ribon
 כָּל|Kol
 הַמַּעֲשִׂים|Hama’asim
@@ -135,7 +128,7 @@ const prayers = {
   yotzer: { title: 'Yotzer Ohr', intro: 'Read down each column, beginning with the rightmost column and continuing to the left. Text follows your prayer book, page 313.', words: yotzer },
   hamelamed: { title: "Hamelamed Torah L’amo Yisrael", intro: "Blessing for the teaching of Torah. Read from top to bottom.", words: hamelamed, source: "https://kitzur.co.il/לוח-לימוד-יומי/textbook/47.html" },
   talit: { title: 'Blessing for the Talit', intro: 'For putting on a prayer shawl. Read from top to bottom.', words: talit, source: 'https://www.chabad.org/library/article_cdo/aid/3869279/jewish/Tallit-Prayer-Blessings.htm' },
-  elohai: { title: 'Elohai Neshama', intro: 'Read down each column, beginning with the rightmost column and continuing to the left.', words: elohai, source: 'https://templesinaiatlanta.org/wp-content/uploads/2025/07/ShabbatMorningService.pdf' },
+  elohai: { allowRecording: true, textVersion: 2, title: 'Elohai Neshama', intro: 'Read down each column, beginning with the rightmost column and continuing to the left.', words: elohai, source: 'https://templesinaiatlanta.org/wp-content/uploads/2025/07/ShabbatMorningService.pdf' },
   laasok: { title: 'Laasok B’divrei Torah', intro: 'Blessing before Torah study. Read from top to bottom.', words: laasok, source: 'https://bneiakiva.org.il/operation/mt-laasok/' }
 };
 const picker = document.getElementById('prayer-picker');
