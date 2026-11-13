@@ -299,5 +299,115 @@ const prayerAlignments = {
         "end": 44.84
       }
     ]
+  },
+  "1d76df5af6daa94b7c01bbced1cb6e0589c029f1eb968e575f4c97c86341377d": {
+    "key": "hamelamed",
+    "marks": [
+      {
+        "word": 0,
+        "time": 0.0,
+        "end": 1.32
+      },
+      {
+        "word": 1,
+        "time": 1.32,
+        "end": 1.94
+      },
+      {
+        "word": 2,
+        "time": 1.94,
+        "end": 2.94
+      },
+      {
+        "word": 3,
+        "time": 2.94,
+        "end": 4.2
+      },
+      {
+        "word": 4,
+        "time": 4.2,
+        "end": 4.76
+      },
+      {
+        "word": 5,
+        "time": 4.76,
+        "end": 5.82
+      },
+      {
+        "word": 6,
+        "time": 5.82,
+        "end": 6.6
+      }
+    ]
+  },
+  "247676493ef34157a34c955226fd0459b84972235b7049ee56f01158dae06e26": {
+    "key": "laasok",
+    "marks": [
+      {
+        "word": 0,
+        "time": 0.0,
+        "end": 1.04
+      },
+      {
+        "word": 1,
+        "time": 1.04,
+        "end": 1.68
+      },
+      {
+        "word": 2,
+        "time": 1.68,
+        "end": 2.5
+      },
+      {
+        "word": 3,
+        "time": 2.5,
+        "end": 3.88
+      },
+      {
+        "word": 4,
+        "time": 3.88,
+        "end": 4.54
+      },
+      {
+        "word": 5,
+        "time": 4.54,
+        "end": 5.26
+      },
+      {
+        "word": 6,
+        "time": 5.26,
+        "end": 6.4
+      },
+      {
+        "word": 7,
+        "time": 6.4,
+        "end": 7.18
+      },
+      {
+        "word": 8,
+        "time": 7.18,
+        "end": 8.14
+      },
+      {
+        "word": 9,
+        "time": 8.14,
+        "end": 9.3
+      },
+      {
+        "word": 10,
+        "time": 9.3,
+        "end": 10.14
+      },
+      {
+        "word": 11,
+        "time": 10.14,
+        "end": 11.06
+      },
+      {
+        "word": 12,
+        "time": 11.06,
+        "end": 11.58
+      }
+    ]
   }
 };
