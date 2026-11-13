@@ -55,7 +55,43 @@ const elohai = `
 אִישׁ|Eesh
 `.trim().split('\n').map(line => line.split('|'));
 const laasok = [...talit.slice(0, 10), ['לַעֲסֹק', 'La’asok'], ['בְּדִבְרֵי', 'B’divrei'], ['תוֹרָה', 'Torah']];
+const hamelamed = `
+וְהַעֲרֶב|V’ha’arev
+נָא|Na
+יְיָ|Adonai
+אֱלֹהֵינוּ|Eloheinu
+אֶת|Et
+דִּבְרֵי|Divrei
+תוֹרָתְךָ|Toratecha
+בְּפִינוּ|B’finu
+וּבְפִיפִיּוֹת|Uv’fifiyot
+עַמְּךָ|Amcha
+בֵּית|Beit
+יִשְׂרָאֵל|Yisrael
+וְנִהְיֶה|V’nihyeh
+אֲנַחְנוּ|Anachnu
+וְצֶאֱצָאֵינוּ|V’tze’etza’einu
+וְצֶאֱצָאֵי|V’tze’etza’ei
+עַמְּךָ|Amcha
+בֵּית|Beit
+יִשְׂרָאֵל|Yisrael
+כֻּלָּנוּ|Kulanu
+יוֹדְעֵי|Yod’ei
+שְׁמֶךָ|Sh’mecha
+וְלוֹמְדֵי|V’lomdei
+תוֹרָתֶךָ|Toratecha
+לִשְׁמָהּ|Lishmah
+בָּרוּךְ|Baruch
+אַתָּה|Atah
+יְיָ|Adonai
+הַמְלַמֵּד|Hamelamed
+תּוֹרָה|Torah
+לְעַמּוֹ|L’amo
+יִשְׂרָאֵל|Yisrael
+`.trim().split('\n').map(line => line.split('|'));
+
 const prayers = {
+  hamelamed: { title: "Hamelamed Torah L’amo Yisrael", intro: "V’ha’arev Na — read down each column, from right to left.", words: hamelamed, source: "https://kitzur.co.il/לוח-לימוד-יומי/textbook/47.html" },
   talit: { title: 'Blessing for the Talit', intro: 'For putting on a prayer shawl. Read from top to bottom.', words: talit, source: 'https://www.chabad.org/library/article_cdo/aid/3869279/jewish/Tallit-Prayer-Blessings.htm' },
   elohai: { title: 'Elohai Neshama', intro: 'Read down each column, beginning with the rightmost column and continuing to the left.', words: elohai, source: 'https://templesinaiatlanta.org/wp-content/uploads/2025/07/ShabbatMorningService.pdf' },
   laasok: { title: 'Laasok B’divrei Torah', intro: 'Blessing before Torah study. Read from top to bottom.', words: laasok, source: 'https://bneiakiva.org.il/operation/mt-laasok/' }
@@ -66,7 +102,7 @@ function showPrayer(key) {
   document.getElementById('title').textContent = prayer.title;
   document.title = prayer.title + ' — Prayers & Blessings';
   document.getElementById('intro').textContent = prayer.intro;
-  document.getElementById('prayer-content').classList.toggle('long', key === 'elohai');
+  document.getElementById('prayer-content').classList.toggle('long', prayer.words.length > 18);
   document.getElementById('source').href = prayer.source;
   const rows = prayer.words.map(([hebrew, transliteration]) => {
     const row = document.createElement('li');
@@ -79,7 +115,17 @@ function showPrayer(key) {
     row.append(he, dash, en);
     return row;
   });
-  document.getElementById('words').replaceChildren(...rows);
+  const columns = [];
+  const columnCount = Math.ceil(rows.length / 18);
+  const wordsPerColumn = Math.ceil(rows.length / columnCount);
+  for (let start = 0; start < rows.length; start += wordsPerColumn) {
+    const column = document.createElement('ol');
+    column.className = 'word-column';
+    column.setAttribute('aria-label', 'Prayer column ' + (columns.length + 1));
+    column.append(...rows.slice(start, start + wordsPerColumn));
+    columns.push(column);
+  }
+  document.getElementById('words').replaceChildren(...columns);
 }
 picker.addEventListener('change', () => showPrayer(picker.value));
 showPrayer(picker.value);

@@ -18,11 +18,12 @@ main { min-width: 0; padding: 32px; display: flex; justify-content: center; alig
 h1 { font-size: 28px; font-weight: normal; margin: 0 0 8px; }
 .intro { font: 14px/1.6 system-ui, sans-serif; color: #6c7b86; margin: 0 0 22px; }
 ol { list-style: none; margin: 0; padding: 0; }
-.long ol { columns: 3 280px; column-gap: 28px; column-rule: 1px solid #e9e8e2; direction: rtl; }
-li { direction: rtl; font-weight: bold; display: grid; grid-template-columns: minmax(0, 1fr) 10px minmax(0, 1fr); align-items: center; gap: 4px; min-height: 50px; border-bottom: 1px solid #e9e8e2; break-inside: avoid; }
-.hebrew { font-family: 'Times New Roman', serif; font-size: 29px; text-align: left; line-height: 1.7; white-space: nowrap; }
+#words { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr)); gap: 28px; direction: rtl; }
+.word-column { display: grid; grid-template-columns: max-content 10px max-content; column-gap: 4px; align-content: start; justify-content: center; direction: rtl; }
+li { direction: rtl; font-weight: bold; display: grid; grid-template-columns: subgrid; grid-column: 1 / -1; align-items: center; gap: 4px; min-height: 50px; border-bottom: 1px solid #e9e8e2; break-inside: avoid; }
+.hebrew { font-family: 'Times New Roman', serif; font-size: 29px; text-align: right; line-height: 1.7; white-space: nowrap; }
 .dash { color: #9ca7ae; }
-.transliteration { direction: ltr; text-align: right; font-size: 18px; white-space: nowrap; }
+.transliteration { direction: ltr; text-align: left; font-size: 18px; white-space: nowrap; }
 footer { margin-top: 22px; font: 12px/1.6 system-ui, sans-serif; color: #6c7b86; }
 a { color: #345c80; text-underline-offset: 3px; }
 select:focus-visible { outline: 3px solid #345c80; outline-offset: 3px; }
@@ -33,10 +34,11 @@ select:focus-visible { outline: 3px solid #345c80; outline-offset: 3px; }
 <div class="layout">
 <aside>
 <label for="prayer-picker">Choose a prayer</label>
-<select id="prayer-picker" size="3" aria-controls="prayer-content">
+<select id="prayer-picker" size="4" aria-controls="prayer-content">
 <option value="talit" selected>Talit</option>
 <option value="elohai">Elohai</option>
 <option value="laasok">Laasok</option>
+<option value="hamelamed">Hamelamed</option>
 </select>
 </aside>
 <main>
@@ -44,7 +46,7 @@ select:focus-visible { outline: 3px solid #345c80; outline-offset: 3px; }
 <p class="eyebrow">Prayer &amp; practice</p>
 <h1 id="title"></h1>
 <p class="intro" id="intro"></p>
-<ol id="words" aria-label="Hebrew prayer with word-by-word transliteration"></ol>
+<div id="words" aria-label="Hebrew prayer with word-by-word transliteration"></div>
 <footer>יְיָ is read as Adonai. <a id="source">Prayer text reference</a></footer>
 </section>
 </main>
