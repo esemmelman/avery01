@@ -43,12 +43,13 @@ li[data-word] { cursor: pointer; }
 .playback-only .controls { padding: 0; background: transparent; }
 .playback-only .controls .buttons { margin: 0; }
 .playback-only .intro { display: none; }
-.playback-only #pdf { display: block; margin: 0 0 10px auto; }
+.prayer-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.prayer-header .eyebrow { margin: 0; }
 @media print {
  @page { size: portrait; margin: 10mm; }
  body { background: white; }
  .layout { display: block; min-height: 0; }
- aside, .controls, .eyebrow, footer { display: none !important; }
+ aside, .controls, .prayer-header, footer { display: none !important; }
  main { display: block; padding: 0; }
  .blessing, .blessing.long { width: 100%; padding: 0; box-shadow: none; border: 0; }
  h1 { font-size: 34px; }
@@ -75,11 +76,13 @@ li[data-word] { cursor: pointer; }
 </aside>
 <main>
 <section class="blessing" id="prayer-content" aria-labelledby="title">
+<div class="prayer-header">
 <p class="eyebrow">Prayer &amp; practice</p>
+<button id="pdf">Print</button>
+</div>
 <h1 id="title"></h1>
 <p class="intro" id="intro"></p>
 <div class="controls">
-<button id="pdf">Print</button>
 <audio id="player" controls preload="metadata" aria-label="Prayer recording"></audio>
 <p id="playback-status" role="status" aria-live="polite" hidden></p>
 </div>
