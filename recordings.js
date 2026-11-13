@@ -189,7 +189,7 @@
       if (value.version !== 1 || value.key !== key || !/^data:audio\/[\w.+-]+(?:;[^,]*)?;base64,/.test(value.audio) || !Number.isFinite(value.duration) || value.duration <= 0 || !Array.isArray(value.marks) || !value.marks.length || value.marks.length > count || value.marks.some((mark, i) => mark.word !== i || !Number.isFinite(mark.time) || mark.time < 0 || mark.time > value.duration || (i && mark.time < value.marks[i - 1].time))) throw Error('Invalid backup');
       if (current && !window.confirm('Replace the current saved recording with this backup?')) return;
       const blob = await (await fetch(value.audio)).blob();
-      const saved = { key, blob, marks: value.marks, duration: value.duration, complete: value.marks.length === count, savedAt: value.savedAt };
+      const saved = { key, blob, marks: value.marks, duration: value.duration, textVersion: value.textVersion, complete: value.marks.length === count, savedAt: value.savedAt };
       await put(saved); attach(await alignRecording(saved)); status(current.complete ? 'Recording and word timings restored.' : 'Recording restored with incomplete word timings.');
     } catch { status('Could not restore. Choose a valid recording backup for the selected prayer.'); }
     finally { event.target.value = ''; recordingControls(false); }
