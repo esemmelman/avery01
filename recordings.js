@@ -50,10 +50,21 @@
     $('rewind').disabled = $('forward').disabled = active || !current;
     player.hidden = active;
   }
+  async function alignRecording(recording) {
+    if (!recording) return recording;
+    const digest = await crypto.subtle.digest('SHA-256', await recording.blob.arrayBuffer());
+    const hash = Array.from(new Uint8Array(digest), b => b.toString(16).padStart(2, '0')).join('');
+    const alignment = prayerAlignments[hash];
+    if (alignment && alignment.key === recording.key) {
+      return { ...recording, marks: alignment.marks, complete: true, aligned: true };
+    }
+    return recording;
+  }
   function attach(recording) {
     player.pause();
     if (objectUrl) URL.revokeObjectURL(objectUrl);
     current = recording;
+    $('prayer-content').classList.toggle('playback-only', !!recording);
     player.removeAttribute('src');
     if (recording) { objectUrl = URL.createObjectURL(recording.blob); player.src = objectUrl; }
     player.load();
@@ -66,7 +77,7 @@
     attach(null);
     status('Loading recording…');
     try {
-      const value = await get(requested);
+      const value = await alignRecording(await get(requested));
       if (key !== requested) return;
       attach(value);
       status(value ? (value.complete ? 'Recording ready. Press play to follow the highlighted words.' : 'Recording ready, with incomplete word timings. Record again for full highlighting.') : 'No recording yet. Record this prayer to begin.');
@@ -140,9 +151,13 @@
     if (!current || busy) return;
     const time = player.currentTime;
     let index = -1;
-    for (const mark of current.marks) { if (mark.time > time) break; index = mark.word; }
+    for (const mark of current.marks) { if (mark.time > time) break; index = mark.end !== undefined && time >= mark.end ? -1 : mark.word; }
     highlight(index);
   }
+  let frame;
+  function tick() { sync(); if (!player.paused && !player.ended) frame = requestAnimationFrame(tick); }
+  player.addEventListener('play', () => { cancelAnimationFrame(frame); tick(); });
+  player.addEventListener('pause', () => cancelAnimationFrame(frame));
   ['timeupdate', 'seeked', 'play'].forEach(event => player.addEventListener(event, sync));
   player.addEventListener('ended', () => highlight(-1));
   player.addEventListener('error', () => { if (current) status('This browser cannot play the recording format. Try the browser used to record it.'); });

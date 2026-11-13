@@ -40,6 +40,13 @@ audio { width: 100%; margin-top: 8px; }
 li.active { background: #ffe69a; box-shadow: 0 0 0 3px #ffe69a; border-radius: 3px; }
 li[data-word] { cursor: pointer; }
 [hidden] { display: none !important; }
+.playback-only .controls { padding: 0; background: transparent; }
+.playback-only .controls .buttons { margin: 0; }
+.playback-only .controls p, .playback-only .controls label,
+.playback-only #record, .playback-only #next-word, .playback-only #stop-record,
+.playback-only #rewind, .playback-only #forward, .playback-only #backup,
+.playback-only .intro { display: none; }
+.playback-only #pdf { margin-bottom: 10px; }
 @media print {
  @page { size: landscape; margin: 12mm; }
  body { background: white; }
@@ -88,6 +95,7 @@ li[data-word] { cursor: pointer; }
 </main>
 </div>
 <script src="prayers.js"></script>
+<script src="alignments.js"></script>
 <script src="recordings.js"></script>
 </body>
 </html>
