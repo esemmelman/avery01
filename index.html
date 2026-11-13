@@ -48,18 +48,18 @@ li[data-word] { cursor: pointer; }
 .playback-only .intro { display: none; }
 .playback-only #pdf { margin-bottom: 10px; }
 @media print {
- @page { size: landscape; margin: 12mm; }
+ @page { size: portrait; margin: 10mm; }
  body { background: white; }
  .layout { display: block; min-height: 0; }
  aside, .controls, .eyebrow, footer { display: none !important; }
  main { display: block; padding: 0; }
  .blessing, .blessing.long { width: 100%; padding: 0; box-shadow: none; border: 0; }
- h1 { font-size: 23px; }
- .intro { margin-bottom: 10px; font-size: 11px; }
- #words { overflow: visible; gap: 24px; grid-template-columns: repeat(var(--columns, 1), minmax(0, 1fr)); }
- li { min-height: 27px; gap: 2px; }
- .hebrew { font-size: 21px; line-height: 1.35; }
- .transliteration { font-size: 13px; }
+ h1 { font-size: 28px; }
+ .intro { margin-bottom: 14px; font-size: 13px; }
+ #words { overflow: visible; gap: 12px; grid-template-columns: repeat(var(--columns, 1), minmax(0, 1fr)); }
+ li { min-height: 35px; gap: 2px; }
+ .hebrew { font-size: 26px; line-height: 1.35; }
+ .transliteration { font-size: 16px; }
  li.active { background: transparent; box-shadow: none; }
 }
 </style>
