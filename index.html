@@ -19,10 +19,10 @@ h1 { font-size: 28px; font-weight: normal; margin: 0 0 8px; }
 .intro { font: 14px/1.6 system-ui, sans-serif; color: #6c7b86; margin: 0 0 22px; }
 ol { list-style: none; margin: 0; padding: 0; }
 .long ol { columns: 3 280px; column-gap: 28px; column-rule: 1px solid #e9e8e2; direction: rtl; }
-li { direction: rtl; font-weight: bold; display: flex; justify-content: center; align-items: center; gap: 4px; min-height: 50px; border-bottom: 1px solid #e9e8e2; break-inside: avoid; }
-.hebrew { font-family: 'Times New Roman', serif; font-size: 29px; line-height: 1.7; white-space: nowrap; }
+li { direction: rtl; font-weight: bold; display: grid; grid-template-columns: minmax(0, 1fr) 10px minmax(0, 1fr); align-items: center; gap: 4px; min-height: 50px; border-bottom: 1px solid #e9e8e2; break-inside: avoid; }
+.hebrew { font-family: 'Times New Roman', serif; font-size: 29px; text-align: left; line-height: 1.7; white-space: nowrap; }
 .dash { color: #9ca7ae; }
-.transliteration { direction: ltr; font-size: 18px; white-space: nowrap; }
+.transliteration { direction: ltr; text-align: right; font-size: 18px; white-space: nowrap; }
 footer { margin-top: 22px; font: 12px/1.6 system-ui, sans-serif; color: #6c7b86; }
 a { color: #345c80; text-underline-offset: 3px; }
 select:focus-visible { outline: 3px solid #345c80; outline-offset: 3px; }

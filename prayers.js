@@ -44,15 +44,20 @@ const elohai = `
 בָּרוּךְ|Baruch
 אַתָּה|Atah
 יְיָ|Adonai
-הַמַּחֲזִיר|Hamachazir
-נְשָׁמוֹת|Neshamot
-לִפְגָרִים|Lifgarim
-מֵתִים|Metim
+אֲשֶׁר|Asher
+בְּיָדוֹ|B’yado
+נֶפֶשׁ|Nefesh
+כָּל|Kol
+חָי|Chai
+וְרוּחַ|V’ruach
+כָּל|Kol
+בְּשַׂר|B’sar
+אִישׁ|Eesh
 `.trim().split('\n').map(line => line.split('|'));
 const laasok = [...talit.slice(0, 10), ['לַעֲסֹק', 'La’asok'], ['בְּדִבְרֵי', 'B’divrei'], ['תוֹרָה', 'Torah']];
 const prayers = {
   talit: { title: 'Blessing for the Talit', intro: 'For putting on a prayer shawl. Read from top to bottom.', words: talit, source: 'https://www.chabad.org/library/article_cdo/aid/3869279/jewish/Tallit-Prayer-Blessings.htm' },
-  elohai: { title: 'Elohai Neshama', intro: 'Read down each column, beginning with the rightmost column and continuing to the left.', words: elohai, source: 'https://voices.sefaria.org/sheets/514057' },
+  elohai: { title: 'Elohai Neshama', intro: 'Read down each column, beginning with the rightmost column and continuing to the left.', words: elohai, source: 'https://templesinaiatlanta.org/wp-content/uploads/2025/07/ShabbatMorningService.pdf' },
   laasok: { title: 'Laasok B’divrei Torah', intro: 'Blessing before Torah study. Read from top to bottom.', words: laasok, source: 'https://bneiakiva.org.il/operation/mt-laasok/' }
 };
 const picker = document.getElementById('prayer-picker');
